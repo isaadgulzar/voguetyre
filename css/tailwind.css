@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+ h1, .h1 {
+    @apply text-3xl lg:text-90p font-oswald font-semibold text-white uppercase text-center px-3 lg:px-0;
+ }
+ h2, .h2 {
+    @apply text-21p lg:text-50p font-oswald font-semibold text-white uppercase text-center;
+ }
+ h3, .h3 {
+    @apply text-3xl lg:text-50p font-oswald font-semibold text-white uppercase;
+ }
+ .t3xl {
+   @apply text-21p lg:text-3xl font-oswald font-semibold text-silver uppercase text-center tracking-normal lg:tracking-5p;
+   }
+ h4, .h4 {
+    @apply text-xl lg:text-3xl font-source-sans-pro font-semibold text-silver uppercase text-center;
+ }
+ .p-30 {
+    @apply text-xl lg:text-3xl font-source-sans-pro font-normal text-silver uppercase;
+ }
+ .link  {
+    @apply text-lg lg:text-3xl font-source-sans-pro font-semibold bg-black text-silver uppercase;
+ }
+ .select-item {
+    @apply text-lg lg:text-3xl font-source-sans-pro font-semibold bg-black text-silver uppercase flex items-center border-b px-5 h-50p lg:h-70p;
+ }
+ .form-tabs .active {
+    @apply text-yellow bg-black;
+ }
+}
