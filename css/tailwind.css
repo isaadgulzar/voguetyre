@@ -21,6 +21,9 @@
  .p-30 {
     @apply text-xl lg:text-3xl font-source-sans-pro font-normal text-silver uppercase;
  }
+ .p-27 {
+   @apply text-xl lg:text-27p font-source-sans-pro font-normal text-silver uppercase;
+}
  .link  {
     @apply text-lg lg:text-3xl font-source-sans-pro font-semibold bg-black text-silver uppercase;
  }
@@ -30,4 +33,69 @@
  .form-tabs .active {
     @apply text-yellow bg-black;
  }
+}
+.swiper-pagination-bullet {
+   width: 20px;
+   height: 20px;
+   @apply bg-transparent border-2 border-silver;
+}
+.swiper-pagination-bullet-active {
+   @apply bg-silver;
+}
+.swiper-button-next, .swiper-button-prev { 
+   @apply text-white;
+}
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+   left: 30px;
+   right: auto;
+}
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+   right: 30px;
+   left: auto;
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+   bottom: 35px;
+}
+@media only screen and (max-width: 500px) {
+   .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+   }
+   .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+      bottom: 0px;
+      background: black;
+      opacity: 1;
+    }
+   .swiper-button-next, .swiper-button-prev { 
+      display: none;
+   }
+}
+
+/* Custom ScrollBar  */
+/* width */
+.custom-scrollbar::-webkit-scrollbar {
+   width: 10px;
+ }
+ 
+ /* Track */
+ .custom-scrollbar::-webkit-scrollbar-track {
+   @apply bg-transparent;
+ }
+ 
+ /* Handle */
+ .custom-scrollbar::-webkit-scrollbar-thumb {
+   background: transparent;
+   border-left: 5px solid #C9C9C9;
+ }
+ 
+ /* Handle on hover */
+ .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+   @apply border-white;
+ }
+
+ .custom-scrollbar [type='radio']:checked {
+   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+.custom-scrollbar .focus\:ring-0:focus {
+   --tw-ring-offset-shadow: none;
 }

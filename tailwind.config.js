@@ -23,6 +23,10 @@ module.exports = {
           letterSpacing: '5px',
           lineHeight: '25px',
         }],
+        '27p': ['27px', {
+          letterSpacing: '5px',
+          lineHeight: '31px',
+        }],
         '50p': ['50px', {
           letterSpacing: '5px',
           lineHeight: '60px',
@@ -37,7 +41,9 @@ module.exports = {
         '70p': '70px',
         '150p': '150px',
         '300p': '300px',
+        '370p': '370px',
         '420p': '420px',
+        '610p': '610px',
       },
       fontFamily: {
         'oswald' : ['Oswald', 'sans-serif'],
@@ -51,5 +57,7 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }
