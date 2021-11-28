@@ -33,6 +33,29 @@
  .form-tabs .active {
     @apply text-yellow bg-black;
  }
+ .btn {
+    @apply border hover:border-yellow rounded-full hover:bg-yellow text-white hover:text-black;
+ }
+   /* normal state  */
+   .sidebar-nav a span{
+      @apply text-base lg:text-3xl font-oswald font-semibold text-white uppercase tracking-normal;
+   }
+   .sidebar-nav a svg{
+      @apply text-white;
+   }
+   /* active state  */
+   ul.sidebar-nav li a.active{
+      @apply bg-black text-yellow;
+   }
+   ul.sidebar-nav li a.active span{
+      @apply text-yellow;
+   }
+   ul.sidebar-nav li a.active svg.arrow{
+      @apply text-yellow;
+   }
+   .sidebar-subnav-2 {
+      @apply bg-black-highlighted;
+   }
 }
 .swiper-pagination-bullet {
    width: 20px;

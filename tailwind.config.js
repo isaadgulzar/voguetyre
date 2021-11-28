@@ -1,5 +1,5 @@
 module.exports = {
-  purge: [],
+  purge: ['index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -40,9 +40,11 @@ module.exports = {
         '50p': '50px',
         '70p': '70px',
         '150p': '150px',
+        '260p': '260px',
         '300p': '300px',
         '370p': '370px',
         '420p': '420px',
+        '500p': '500px',
         '610p': '610px',
       },
       fontFamily: {
