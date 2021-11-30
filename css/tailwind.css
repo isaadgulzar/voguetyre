@@ -14,7 +14,7 @@
  }
  .t3xl {
    @apply text-21p lg:text-3xl font-oswald font-semibold text-silver uppercase text-center tracking-normal lg:tracking-5p;
-   }
+}
  h4, .h4 {
     @apply text-xl lg:text-3xl font-source-sans-pro font-semibold text-silver uppercase text-center;
  }
@@ -33,18 +33,22 @@
  .form-tabs .active {
     @apply text-yellow bg-black;
  }
+ .chip {
+    @apply px-2 lg:px-3 lg:py-1 max-w-max flex items-center justify-center space-x-1 lg:space-x-2 text-base lg:text-2xl font-normal text-silver font-source-sans-pro;
+ }
  .btn {
     @apply border hover:border-yellow rounded-full hover:bg-yellow text-white hover:text-black;
  }
+ 
    /* normal state  */
-   .sidebar-nav a span{
+   .sidebar-nav a span, .vt-sub-links a span {
       @apply text-base lg:text-3xl font-oswald font-semibold text-white uppercase tracking-normal;
    }
-   .sidebar-nav a svg{
+   .sidebar-nav a svg, .vt-sub-links a svg {
       @apply text-white;
    }
    /* active state  */
-   ul.sidebar-nav li a.active{
+   ul.sidebar-nav li a.active, {
       @apply bg-black text-yellow;
    }
    ul.sidebar-nav li a.active span{
@@ -53,7 +57,7 @@
    ul.sidebar-nav li a.active svg.arrow{
       @apply text-yellow;
    }
-   .sidebar-subnav-2 {
+   .sidebar-subnav-2, .vt-sub-links {
       @apply bg-black-highlighted;
    }
 }

@@ -41,7 +41,7 @@
                 </svg>
             </a>  
         </div>
-        <div class="h-screen flex flex-col md:flex-row w-full overflow-hidden">
+        <div class="h-full flex flex-col md:flex-row w-full overflow-hidden">
             <!-- Sidebars -->
             <div class="absolute w-auto top-20 lg:top-28 left-0 lg:-left-14 h-screen lg:h-auto lg:relative flex flex-shrink-0">
                 <div x-show="sidebarNavMobile" class="flex fixed z-40 top-20 lg:top-28 h-full flex-col w-full bg-black mt-2 border-t border-granite">
@@ -287,76 +287,21 @@
     <div class="bg-black-highlighted flex flex-col items-center py-14 lg:py-28">
         <div class="max-w-4xl px-5 lg:px-3.5">
             <h1>FIND YOUR PERFECT VOGE TYRE</h1>
-            <div x-data="{activeTab: 'size'}" class="flex flex-col w-full pt-7 lg:pt-24">
+            <div x-data="{activeTab: 'size',showSelector: ''}" class="flex flex-col w-full pt-7 lg:pt-24">
                 <div class="form-tabs flex items-center justify-center divide-x w-full border-t border-b">
-                    <a @click.prevent="activeTab = 'model'" :class="{'active' : activeTab == 'model'}" href="#" class="h4 w-1/2 py-4 lg:py-8">BY VEHICLE</a>
+                    <a @click.prevent="activeTab = 'vehicle'" :class="{'active' : activeTab == 'vehicle'}" href="#" class="h4 w-1/2 py-4 lg:py-8">BY VEHICLE</a>
                     <a @click.prevent="activeTab = 'size'" :class="{'active' : activeTab == 'size'}" href="#" class="h4 w-1/2 py-4 lg:py-8">BY SIZE</a>
                 </div>
-                <div class="form-tabs flex items-center justify-center w-full border-b">
-                    <a x-show="activeTab == 'model'" href="#" class="h4 py-4 lg:py-8">MODEL</a>
-                    <a x-show="activeTab == 'size'" href="#" class="h4 py-4 lg:py-8">WIDTH</a>
+                <div x-show="activeTab == 'size'" class="form-tabs flex items-center justify-center w-full border-b">
+                    <a href="#" @click.prevent="showSelector = 'width'" class="h4 py-4 lg:py-8">WIDTH<span class="selection-result"></span></a>
                 </div>
-                <div class="py-10 lg:py-12 text-center">
-                    <label x-show="activeTab == 'model'" for="model-label" class="h2"> SELECT MODEL: </label>
-                    <label x-show="activeTab == 'size'" for="listbox-label" class="h2"> SELECT WIDTH: </label>
-                </div>
-                <div>
-                    <!-- select model - list -->
-                    <div x-show="activeTab == 'model'" class="relative">
-                        <ul x-data="{selectedItem: ''}" id="model-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="TESLA">TESLA</label>
-                                <div class="flex items-center">
-                                    <input id="TESLA" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="BMW">BMW</label>
-                                <div class="flex items-center">
-                                    <input id="BMW" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="BENZ">BENZ</label>
-                                <div class="flex items-center">
-                                    <input id="BENZ" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="AUDI">AUDI</label>
-                                <div class="flex items-center">
-                                    <input id="AUDI" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="FERRARI">FERRARI</label>
-                                <div class="flex items-center">
-                                    <input id="FERRARI" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="HONDA">HONDA</label>
-                                <div class="flex items-center">
-                                    <input id="HONDA" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="TOYOTA">TOYOTA</label>
-                                <div class="flex items-center">
-                                    <input id="TOYOTA" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <li class="w-full select-item relative" role="option">
-                                <label class="w-full" for="OTHERS">OTHERS</label>
-                                <div class="flex items-center">
-                                    <input id="OTHERS" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
-                                </div>
-                            </li>
-                            <!-- More items... -->
-                        </ul>
+                <div x-show="activeTab == 'size'">
+                    <!-- Label WIDTH -->
+                    <div x-show="showSelector == 'width'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select WIDTH: </label>
                     </div>
-                    <!-- select size - list -->
-                    <div x-show="activeTab == 'size'" class="relative">
+                    <!-- Select WIDTH - list -->
+                    <div x-show="showSelector == 'width'" class="relative">
                         <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
                             <li class="w-full select-item relative" role="option">
                                 <label class="w-full" for="option1">175</label>
@@ -586,75 +531,184 @@
         </div>
     </div>
     <!-- Footer  -->
-    <div class="bg-black px-5 2xl:px-7 py-14">
-        <div class="grid lg:grid-cols-3 gap-y-14 lg:gap-y-0 lg:divide-x-2">
-            <div class="flex flex-col space-y-5 lg:space-y-0 items-center justify-center">
+    <div class="bg-black px-0 2xl:px-7 py-14">
+        <div class="grid lg:grid-cols-3 gap-y-12 lg:gap-y-0 lg:divide-x-2">
+            <div class="flex flex-col space-y-5 lg:space-y-0 items-center justify-center px-5 lg:px-0">
                 <img class="h-12 lg:h-auto" src="./assets/images/desktop-footer-logo.png" alt="">
                 <p class="lg:hidden p-30 text-center normal-case">
                     The Vogue Tyre and Rubber Company provides the best all-season tires and custom luxury wheels on the market. An industry standard for high-end vehicles, Vogue has been designing classic Whitewalls, exclusive White/Gold Sidewall tires and innovative high-performance Signature V tires for over 104 years.
                 </p>
             </div>
-            <div class="flex flex-col space-y-0 lg:space-y-10 2xl:space-y-14 lg:pl-7 2xl:pl-14">
-                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start py-4 lg:py-0 border-b border-t lg:border-0">
-                    <div class="flex items-center space-x-3">
+            <div class="flex flex-col space-y-0 lg:space-y-10 2xl:space-y-14 lg:pl-5 2xl:pl-10">
+                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start border-b border-t lg:border-0">
+                    <div class="flex items-center space-x-3 py-4">
                         <h3 class="t3xl">PRODUCTS</h3>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link lg:mt-2.5"> 
                             <p x-show="!showTab" class="t3xl">+</p>
                             <p x-show="showTab" class="t3xl">-</p>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Other Links Here</p>
-                    </div>
+                    <ul x-show="showTab" class="vt-sub-links w-full flex flex-col divide-y divide-granite">
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Custom Built Radial</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Custom Built Radial SCT</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Custom Built Radial Red Stripe</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Custom Built Radial SCT2 Red Stripe</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Signature V Black</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Signature V Black SCT2</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start py-4 lg:py-0 border-b lg:border-0">
-                    <div class="flex items-center space-x-3">
+                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start border-b lg:border-0">
+                    <div class="flex items-center space-x-3 py-4">
                         <h3 class="t3xl">SUPPORT</h3>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link lg:mt-2.5"> 
                             <p x-show="!showTab" class="t3xl">+</p>
                             <p x-show="showTab" class="t3xl">-</p>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Other Links Here</p>
-                    </div>
+                    <ul x-show="showTab" class="vt-sub-links w-full flex flex-col divide-y divide-granite">
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Tire Warranty</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>FAQ's</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Contact Us</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start py-4 lg:py-0 border-b lg:border-0">
-                    <div class="flex items-center space-x-3">
+                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start border-b lg:border-0">
+                    <div class="flex items-center space-x-3 py-4">
                         <h3 class="t3xl">COMPANY</h3>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link lg:mt-2.5"> 
                             <p x-show="!showTab" class="t3xl">+</p>
                             <p x-show="showTab" class="t3xl">-</p>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Other Links Here</p>
-                    </div>
+                    <ul x-show="showTab" class="vt-sub-links w-full flex flex-col divide-y divide-granite">
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>About</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Blog</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start py-4 lg:py-0 border-b lg:border-0">
-                    <div class="flex items-center space-x-3">
+                <div x-data="{showTab: false}" class="flex flex-col items-center lg:items-start border-b lg:border-0">
+                    <div class="flex items-center space-x-3 py-4">
                         <h3 class="t3xl">LEGAL</h3>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link lg:mt-2.5"> 
                             <p x-show="!showTab" class="t3xl">+</p>
                             <p x-show="showTab" class="t3xl">-</p>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Other Links Here</p>
-                    </div>
+                    <ul x-show="showTab" class="vt-sub-links w-full flex flex-col divide-y divide-granite">
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Claims</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Privacy</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="relative flex flex-col">
+                            <a href="#" class="group flex py-4 px-3 justify-between text-sm">
+                                <span>Terms</span>
+                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="flex flex-col lg:pl-7 2xl:pl-14">
-                <div class="flex flex-col items-center lg:items-start space-y-7 lg:space-y-4">
-                    <h2 class="text-left">STAY UP TO DATE</h2>
-                    <div class="flex px-5 lg:px-0">
-                        <input type="text" class="w-full p-30 border bg-black placeholder-silver normal-case h-50p lg:h-70p px-5" placeholder="email address">
-                        <a href="#" class="border border-yellow-dark bg-yellow-dark text-black py-2.5 lg:py-3 flex items-center justify-center w-44 lg:w-52 link">
-                            SIGN UP
-                        </a>
+            <div class="flex flex-col pl-5 lg:pl-5 2xl:pl-10 pr-5 lg:pr-0">
+                <div class="flex flex-col items-center lg:items-start justify-between h-full space-y-5 lg:space-y-0">
+                    <div class="flex flex-col items-center lg:items-start space-y-7 lg:space-y-4">
+                        <h2 class="text-left">STAY UP TO DATE</h2>
+                        <div class="flex px-5 lg:px-0">
+                            <input type="text" class="w-full p-30 border bg-black placeholder-silver normal-case h-50p lg:h-70p px-5" placeholder="email address">
+                            <a href="#" class="border border-yellow-dark bg-yellow-dark text-black py-2.5 lg:py-3 flex items-center justify-center w-44 lg:w-52 link">
+                                SIGN UP
+                            </a>
+                        </div>
                     </div>
-                    <div class="lg:h-16 2xl:h-36"></div>
-                    <div class="flex items-center space-x-7 lg:space-x-12">
+                    <div class="flex items-center space-x-7 lg:space-x-12 pt-7 lg:pt-0">
                         <a href="#">   
                             <svg class="h-6 lg:h-10" xmlns="http://www.w3.org/2000/svg" width="41.912" viewBox="0 0 41.912 41.92"><g transform="translate(-1278.334 -5035.065)"><path d="M1320.14,5047.39a15.314,15.314,0,0,0-.975-5.086,10.74,10.74,0,0,0-6.134-6.133,15.367,15.367,0,0,0-5.085-.975c-2.244-.106-2.956-.131-8.648-.131s-6.4.025-8.639.123a15.3,15.3,0,0,0-5.085.975,10.732,10.732,0,0,0-6.134,6.133,15.379,15.379,0,0,0-.975,5.086c-.106,2.244-.131,2.956-.131,8.648s.025,6.4.123,8.639a15.3,15.3,0,0,0,.975,5.085,10.732,10.732,0,0,0,6.133,6.134,15.359,15.359,0,0,0,5.086.974c2.235.1,2.948.123,8.639.123s6.4-.024,8.64-.123a15.314,15.314,0,0,0,5.085-.974,10.722,10.722,0,0,0,6.134-6.134,15.35,15.35,0,0,0,.974-5.085c.1-2.236.123-2.948.123-8.639s-.008-6.4-.106-8.64Zm-3.775,17.115a11.518,11.518,0,0,1-.721,3.89,6.953,6.953,0,0,1-3.98,3.98,11.533,11.533,0,0,1-3.89.72c-2.211.1-2.874.123-8.467.123s-6.265-.024-8.468-.123a11.487,11.487,0,0,1-3.89-.72,6.448,6.448,0,0,1-2.407-1.564,6.523,6.523,0,0,1-1.565-2.408,11.545,11.545,0,0,1-.72-3.889c-.1-2.212-.123-2.875-.123-8.468s.025-6.265.123-8.468a11.5,11.5,0,0,1,.72-3.889,6.375,6.375,0,0,1,1.573-2.408,6.516,6.516,0,0,1,2.407-1.564,11.529,11.529,0,0,1,3.89-.721c2.211-.1,2.875-.123,8.468-.123s6.264.025,8.467.123a11.478,11.478,0,0,1,3.89.721,6.907,6.907,0,0,1,3.972,3.972,11.565,11.565,0,0,1,.721,3.889c.1,2.211.122,2.874.122,8.468s-.024,6.248-.122,8.459Zm0,0" fill="#cacaca"/><path d="M1299.3,5045.261a10.768,10.768,0,1,0,10.769,10.769,10.771,10.771,0,0,0-10.769-10.769Zm0,17.754a6.986,6.986,0,1,1,6.986-6.985,6.987,6.987,0,0,1-6.986,6.985Zm0,0" fill="#cacaca"/><path d="M1313.007,5044.835a2.514,2.514,0,1,1-2.514-2.514,2.515,2.515,0,0,1,2.514,2.514Zm0,0" fill="#cacaca"/></g></svg>
                         </a>
@@ -669,7 +723,7 @@
             </div>
         </div>
     </div>
-    <!-- LOCATE YOUR DEALER  -->
+    <!-- Copyrights Details  -->
     <div class="bg-black-highlighted pt-7 pb-12 lg:pb-7">
         <p class="text-sm lg:text-3xl font-source-sans-pro font-normal text-silver uppercase text-center">
             © 2021 Vogue Tyre & Rubber Co. All rights reserved.
