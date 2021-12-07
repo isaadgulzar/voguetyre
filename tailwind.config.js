@@ -23,6 +23,10 @@ module.exports = {
           letterSpacing: '5px',
           lineHeight: '25px',
         }],
+        '24p': ['24px', {
+          letterSpacing: '0px',
+          lineHeight: '29px',
+        }],
         '27p': ['27px', {
           letterSpacing: '5px',
           lineHeight: '31px',

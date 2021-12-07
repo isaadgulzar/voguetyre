@@ -29,6 +29,9 @@
  h4, .h4 {
     @apply text-xl lg:text-3xl font-semibold text-silver uppercase text-center;
  }
+ .t-24 {
+   @apply text-24p lg:text-50p font-oswald font-semibold text-white uppercase;
+}
  .t-20 {
     @apply text-xl lg:text-3xl font-normal text-silver;
  }
@@ -122,6 +125,26 @@
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
    bottom: 35px;
 }
+
+/* About Us Carousel Desktop */
+#about-us-slider .swiper-button-next, #about-us-slider .swiper-button-prev { 
+   display: flex;
+   top: 22px;
+}
+#about-us-slider .swiper-button-next::after, #about-us-slider .swiper-button-prev::after {
+   font-size: 24px;
+}
+#about-us-slider .swiper-button-prev, .swiper-rtl .swiper-button-next {
+   left: 30px;
+   right: auto;
+}
+#about-us-slider .swiper-button-next, .swiper-rtl .swiper-button-prev {
+   right: 30px;
+   left: auto;
+}
+#about-us-slider {
+   position: static;
+}
 @media only screen and (max-width: 500px) {
    .swiper-pagination-bullet {
       width: 10px;
@@ -135,7 +158,40 @@
    .swiper-button-next, .swiper-button-prev { 
       display: none;
    }
+   /* About Us Carousel Mobile */
+   #about-us-slider .swiper-button-next, #about-us-slider .swiper-button-prev { 
+      display: flex;
+      top: 15px;
+   }
+   #about-us-slider .swiper-button-next::after, #about-us-slider .swiper-button-prev::after {
+      font-size: 16px;
+   }
+   #about-us-slider .swiper-button-prev, .swiper-rtl .swiper-button-next {
+      left: 10px;
+      right: auto;
+   }
+   #about-us-slider .swiper-button-next, .swiper-rtl .swiper-button-prev {
+      right: 10px;
+      left: auto;
+   }
+   #about-us-slider {
+      overflow: visible !important;
+      position: static;
+   }
 }
+.horizontalSwipe .swiper-slide {
+   width: 33%;
+   height: 100%;
+   opacity: 0.4;
+   cursor: pointer;
+ }
+ .horizontalSwipe .swiper-slide-thumb-active{
+   opacity: 1;
+ }
+ .horizontalSwipe .swiper-slide-thumb-active p{
+   color: #FFC02E !important;
+   border-color: #FFC02E !important;
+ }
 
 /* Custom ScrollBar  */
 /* width */
