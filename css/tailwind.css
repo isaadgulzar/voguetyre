@@ -18,7 +18,7 @@
     @apply text-3xl lg:text-90p font-oswald font-semibold text-white uppercase text-center px-3 lg:px-0;
  }
  h2, .h2 {
-    @apply text-21p lg:text-50p font-oswald font-semibold text-white uppercase text-center;
+    @apply text-21p lg:text-50p font-oswald font-semibold text-white uppercase text-center tracking-normal;
  }
  h3, .h3 {
     @apply text-3xl lg:text-50p font-oswald font-semibold text-white uppercase;
@@ -35,6 +35,9 @@
  .t-20 {
     @apply text-xl lg:text-3xl font-normal text-silver;
  }
+ .t-16 {
+   @apply text-base lg:text-xl font-normal text-silver;
+}
  .t-18 {
    @apply text-lg lg:text-2xl font-normal text-silver;
 }
@@ -101,6 +104,12 @@
    }
    .desc-list li span {
       @apply text-silver;
+   }
+   .desc-list.silver-dots {
+      @apply text-silver;
+   }
+   .desc-list.silver-dots li  {
+      @apply py-0;
    }
 }
 .swiper-pagination-bullet {
@@ -177,6 +186,21 @@
    #about-us-slider {
       overflow: visible !important;
       position: static;
+   }
+   #product-slider .swiper-button-next, #product-slider .swiper-button-prev { 
+      display: flex;
+      margin-top: -55px;
+   }
+   #product-slider .swiper-button-next::after, #product-slider .swiper-button-prev::after {
+      font-size: 12px;
+   }
+   #product-slider .swiper-button-prev, .swiper-rtl .swiper-button-next {
+      left: 10px;
+      right: auto;
+   }
+   #product-slider .swiper-button-next, .swiper-rtl .swiper-button-prev {
+      right: 10px;
+      left: auto;
    }
 }
 .horizontalSwipe .swiper-slide {

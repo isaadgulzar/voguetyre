@@ -12,6 +12,7 @@ module.exports = {
         granite: '#808080',
         ghost: '#CBCBCB',
         silver: '#C9C9C9',
+        red: '#FF0000',
         yellow: {
           DEFAULT: '#FFC02E',
           dark: "#FFBE00",
