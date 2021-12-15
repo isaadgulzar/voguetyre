@@ -42,6 +42,7 @@ module.exports = {
         }],
       },
       spacing: {
+        '40p': '40px',
         '50p': '50px',
         '70p': '70px',
         '150p': '150px',
@@ -62,7 +63,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      fill: ['hover']
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

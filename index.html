@@ -378,130 +378,184 @@
             The Vogue Tyre & Rubber Company provides the best all-season
             tires and custom luxury wheels on the market.
         </p>
-        <div class="grid lg:grid-cols-3 items-end gap-y-10 lg:gap-y-0 lg:gap-x-14 px-5 lg:px-14 pt-32">
+        <div class="grid lg:grid-cols-3 items-end gap-y-10 lg:gap-y-0 lg:gap-x-14 lg:px-14 pt-32">
             <div class="flex flex-col">
-                <div class="flex itmes-center justify-between py-6 border-b">
+                <div class="flex itmes-center justify-between py-6 border-b px-5">
                     <h3>WHITE / GOLD</h3>
                     <a href="#" class="flex items-center justify-center space-x-2 link">
                         <span>EXPLORE</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="26.099" height="16.357" viewBox="0 0 26.099 16.357"><g transform="translate(-1125.938 -3726.404)"><line x2="23.93" transform="translate(1125.938 3734.582)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M1143.241,3742.761l-1.364-1.465,7.224-6.713-7.224-6.715,1.364-1.465,8.8,8.18Z" fill="#fff"/></g></svg>
                     </a>
                 </div>
-                <div class="mt-10 mb-14 overflow-hidden">
+                <div class="mt-10 mb-14 overflow-hidden px-5">
                     <img src="./assets/images/white-gold.png" alt="">
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">CUSTOM BUILT RADIAL</h4>
                             <p class="t-20">For passenger cars</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'border-b mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">CUSTOM BUILT RADIAL SCT</h4>
                             <p class="t-20">For SUVs, Crossovers, and Trucks</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col">
-                <div class="flex itmes-center justify-between py-6 border-b">
+                <div class="flex itmes-center justify-between py-6 border-b px-5">
                     <h3>WHITE / RED</h3>
                     <a href="#" class="flex items-center justify-center space-x-2 link">
                         <span>EXPLORE</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="26.099" height="16.357" viewBox="0 0 26.099 16.357"><g transform="translate(-1125.938 -3726.404)"><line x2="23.93" transform="translate(1125.938 3734.582)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M1143.241,3742.761l-1.364-1.465,7.224-6.713-7.224-6.715,1.364-1.465,8.8,8.18Z" fill="#fff"/></g></svg>
                     </a>
                 </div>
-                <div class="mt-10 mb-14 overflow-hidden">
+                <div class="mt-10 mb-14 overflow-hidden px-5">
                     <img src="./assets/images/white-red.png" alt="">
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">CUSTOM BUILT RADIAL RED STRIPE</h4>
                             <p class="t-20">For passenger cars</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'border-b mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">CUSTOM BUILT RADIAL SCT RED STRIPE</h4>
                             <p class="t-20">For SUVs, Crossovers, and Trucks</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="flex flex-col">
-                <div class="flex itmes-center justify-between py-6 border-b">
+                <div class="flex itmes-center justify-between py-6 border-b px-5">
                     <h3>SIGNATURE V BLACK</h3>
                     <a href="#" class="flex items-center justify-center space-x-2 link">
                         <span>EXPLORE</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="26.099" height="16.357" viewBox="0 0 26.099 16.357"><g transform="translate(-1125.938 -3726.404)"><line x2="23.93" transform="translate(1125.938 3734.582)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><path d="M1143.241,3742.761l-1.364-1.465,7.224-6.713-7.224-6.715,1.364-1.465,8.8,8.18Z" fill="#fff"/></g></svg>
                     </a>
                 </div>
-                <div class="mt-10 mb-14 overflow-hidden">
+                <div class="mt-10 mb-14 overflow-hidden px-5">
                     <img src="./assets/images/signature_v_black.png" alt="">
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">SIGNATURE V BLACK</h4>
                             <p class="t-20">For passenger cars</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
-                <div x-data="{showTab: false}" class="flex flex-col border-b border-t">
-                    <div class="flex itmes-start justify-between pt-4 pb-8">
+                <div x-data="{showTab: false}" :class="{'bg-black-highlighted px-5 border-b-0' : showTab, 'border-b mx-5': !showTab}" class="flex flex-col border-t">
+                    <div class="flex itmes-start justify-between pt-4 pb-6">
                         <div class="flex flex-col -space-y-2">
                             <h4 :class="{'text-yellow' : showTab}" class="font-oswald text-left">SIGNATURE V BLACK SCT</h4>
                             <p class="t-20">For SUVs, Crossovers, and Trucks</p>
                         </div>
-                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5"> 
+                        <a href="#" @click.prevent="showTab = !showTab" class="flex-shrink-0 link mt-2.5 text-silver bg-transparent"> 
                             <svg x-show="!showTab" class="stroke-current transition-all duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="19.697" height="19.697" viewBox="0 0 19.697 19.697"><g transform="translate(-555.303 -3395.314)"><line y2="19.697" transform="translate(565.151 3395.314)" fill="none" stroke-miterlimit="10" stroke-width="1"/><line x2="19.697" transform="translate(555.303 3405.163)" fill="none" stroke="#cacaca" stroke-miterlimit="10" stroke-width="1"/></g></svg> 
                             <svg x-show="showTab" :class="{'text-yellow' : showTab}" class="stroke-current transition-all duration-300 ease-in-out mt-2.5" xmlns="http://www.w3.org/2000/svg" width="19.697" height="2" viewBox="0 0 19.697 1"><line x2="19.697" transform="translate(0 0.5)" fill="none" stroke-miterlimit="10" stroke-width="1"/></svg>
                         </a>
                     </div>
-                    <div x-show="showTab" class="h-20">
-                        <p class="text-xs text-silver opacity-80"> // Content Here</p>
+                    <div x-show="showTab" class="flex flex-col space-y-3 pb-5">
+                        <div class="flex flex-col space-y-0">
+                            <p class="t-20 text-white">SIZES OFFERED:</p>
+                            <span class="t-20 text-white">16, 17, 18, 19, 20, 22 - INCH</span>
+                        </div>
+                        <div class="col-span-2 pt-5">
+                            <a href="#" @click.prevent="ContactModal = true" class="max-w-max px-5 link flex items-center justify-center space-x-3 h-40p lg:h-auto py-3 btn text-white border-white w-full lg:px-20 lg:mx-auto lg:max-w-max">
+                                <span>BUY</span>
+                                <svg class="stroke-current" xmlns="http://www.w3.org/2000/svg" width="14.176" height="15.013" viewBox="0 0 14.176 15.013"><g transform="translate(-1079.103 -2418.547)"><path d="M1092.7,2433.061h-13.013l1.529-10.05h9.954Z" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/><path d="M1088.471,2426.192v-4.864a2.28,2.28,0,1,0-4.56,0v4.864" fill="none" stroke="" stroke-miterlimit="10" stroke-width="1"/></g></svg>
+                            </a>  
+                        </div>
                     </div>
                 </div>
             </div>

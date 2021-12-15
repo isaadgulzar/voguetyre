@@ -62,6 +62,9 @@
  .btn {
     @apply border bg-transparent hover:border-yellow rounded-full hover:bg-yellow text-white hover:text-black;
  }
+ .btn-yellow {
+   @apply border bg-yellow border-yellow hover:border-yellow-dark rounded-full hover:bg-yellow-dark text-black;
+}
  .silver-hover-yellow {
     @apply text-silver hover:text-yellow;
  }
@@ -243,5 +246,43 @@
    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
 }
 .custom-scrollbar .focus\:ring-0:focus {
+   --tw-ring-offset-shadow: none;
+}
+
+/* Rating Stars */
+.rating-stars.one svg.one{
+   @apply fill-current;
+}
+.rating-stars.two svg.one,
+.rating-stars.two svg.two{
+   @apply fill-current;
+}
+.rating-stars.three svg.one,
+.rating-stars.three svg.two,
+.rating-stars.three svg.three{
+   @apply fill-current;
+}
+.rating-stars.four svg.one,
+.rating-stars.four svg.two,
+.rating-stars.four svg.three,
+.rating-stars.four svg.four{
+   @apply fill-current;
+}
+.rating-stars.five svg.one,
+.rating-stars.five svg.two,
+.rating-stars.five svg.three,
+.rating-stars.five svg.four,
+.rating-stars.five svg.five{
+   @apply fill-current;
+}
+
+/* Custom Checkbox Design */
+.input-checkbox {
+   @apply h-5 w-5 bg-transparent text-yellow focus:outline-none focus:ring-0 border border-granite;
+}
+.input-checkbox[type='checkbox']:checked {
+   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+.input-checkbox.focus\:ring-0:focus {
    --tw-ring-offset-shadow: none;
 }
