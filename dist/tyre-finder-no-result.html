@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Oswald Fonts  -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link  rel="stylesheet"  href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <title>Locate Dealer 1 - Vogue Tyre</title>
+</head>
+<body class="bg-black">
+    <!-- Header -->
+    <header x-data="{sidebarOpen: false, sidebarNav: false, sidebarNavMobile: false, sidebarRightNavMobile: false, headerFooter : true, showSidebar: true, showSubnav : -1, hideSubnavItems : -1}" class="h-28 lg:h-150p bg-black px-5 lg:px-14 py-5">
+        <div class="flex items-center justify-between h-full w-full">
+            <a href="#" @click.prevent="sidebarNavMobile = !sidebarNavMobile">
+                <svg x-show="!sidebarNavMobile" class="h-5 lg:h-8" xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 35 32">
+                    <g transform="translate(-74.161 -59)"><line x1="35" transform="translate(74.161 60)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="35" transform="translate(74.161 90)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="35" transform="translate(74.161 75.039)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
+                </svg>
+                <svg x-show="sidebarNavMobile" class="h-5 lg:h-8" xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 21.061 21.061">
+                    <g transform="translate(-1466.219 -72.849)"><line x2="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/><line x1="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/></g>
+                </svg>
+            </a>  
+            <a href="index.html">
+                <img class="h-10 lg:h-auto" src="./assets/images/desktop-navbar-logo.png" alt="">
+            </a>
+            <a href="#" @click.prevent="sidebarRightNavMobile = !sidebarRightNavMobile">
+                <span x-show="!sidebarRightNavMobile" class="flex flex-col items-center space-y-1 lg:space-y-2">
+                    <svg class="h-7 lg:h-10" xmlns="http://www.w3.org/2000/svg" width="37.914" viewBox="0 0 37.914 39.455">
+                        <g transform="translate(-1808.425 -47)"><path d="M1835.046,66.727a25.06,25.06,0,0,0-3.125-12.462V47.5h-9.935c-7.213,0-13.061,8.608-13.061,19.227s5.848,19.228,13.061,19.228h9.935V79.189A25.055,25.055,0,0,0,1835.046,66.727Z" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/><ellipse cx="13.06" cy="19.227" rx="13.06" ry="19.227" transform="translate(1819.718 47.5)" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/><g transform="translate(1821.096 48.985)" fill="none" stroke="#ffbe00" stroke-miterlimit="10" stroke-width="1.118"><ellipse cx="11.683" cy="17.742" rx="11.683" ry="17.742" stroke="none"/><ellipse cx="11.683" cy="17.742" rx="11.124" ry="17.183" fill="none"/></g><g transform="translate(1823.406 51.157)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2.236"><ellipse cx="9.372" cy="15.57" rx="9.372" ry="15.57" stroke="none"/><ellipse cx="9.372" cy="15.57" rx="8.255" ry="14.452" fill="none"/></g></g>
+                    </svg>
+                    <svg class="h-1 lg:h-2" xmlns="http://www.w3.org/2000/svg" width="13.115" viewBox="0 0 13.115 7.265">
+                        <path d="M1821.178,96.3l6.2,6.2,6.2-6.2" transform="translate(-1820.825 -95.943)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                    </svg>
+                </span>
+                <svg x-show="sidebarRightNavMobile" class="h-5 lg:h-10" xmlns="http://www.w3.org/2000/svg" width="37" viewBox="0 0 21.061 21.061">
+                    <g transform="translate(-1466.219 -72.849)"><line x2="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/><line x1="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/></g>
+                </svg>
+            </a>  
+        </div>
+        <div class="h-full flex flex-col md:flex-row w-full overflow-hidden">
+            <!-- Sidebars -->
+            <div class="absolute w-auto top-20 lg:top-28 left-0 lg:-left-14 h-screen lg:h-auto lg:relative flex flex-shrink-0">
+                <div x-show="sidebarNavMobile" class="flex fixed z-40 top-20 lg:top-28 h-full flex-col w-full bg-black mt-2 border-t border-granite">
+                    <div class="flex flex-col space-y-5 h-full bg-black">
+                        <div class="flex-grow flex flex-col pb-10 overflow-y-auto">
+                            <ul @mouseleave="hideSubnavItems == 1 ? showSubnav = -1 : hideSubnavItems = -1" :class="{'one' : hideSubnavItems == 1}" class="sidebar-nav flex flex-col space-y-1 divide-y divide-granite">
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 1 ? showSubnav = -1 : showSubnav = 1" :class="{'active' : showSubnav == 1}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>CUSTOM BUILT WHITE / GOLD</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 1, 'rotate-0' : showSubnav != 1}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 1" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-gold.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL WHITE GOLD
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-gold.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL SCT2 WHITE GOLD
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 2 ? showSubnav = -1 : showSubnav = 2" :class="{'active' : showSubnav == 2}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>CUSTOM BUILT WHITE / RED</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 2, 'rotate-0' : showSubnav != 2}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8  w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 2" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-red.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL WHITE RED
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="#" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL SCT2 WHITE RED
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 3 ? showSubnav = -1 : showSubnav = 3" :class="{'active' : showSubnav == 3}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>SIGNATURE V BLACK</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 3, 'rotate-0' : showSubnav != 3}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8  w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 3" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-signature-black.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM SIGNATURE V BLACK
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-signature-black.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM SCT2 SIGNATURE V BLACK
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="all-tires-and-sizes.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>ALL TIRES AND SIZES</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="merch-store.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>MERCH STORE</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="warranty.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>TIRE WARRANTY</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>SUPPORT</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="locate-dealer-1.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>DEALER PORTAL</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="w-4/5 lg:max-w-xs mx-auto pt-4"> 
+                                <a href="./locate-dealer-1.html" class="bg-yellow text-black rounded-full h-50p lg:h-auto py-3 flex items-center justify-center space-x-3 link">
+                                    <span cl>LOCATE RETAILER</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="sidebarRightNavMobile" class="flex fixed z-40 top-20 lg:top-28 flex-col w-full bg-black mt-2 border-t border-b border-granite">
+                    <div class="flex flex-col space-y-5 bg-black">
+                        <div class="flex-grow flex flex-col overflow-y-auto">
+                            <ul @mouseleave="hideSubnavItems == 1 ? showSubnav = -1 : hideSubnavItems = -1" :class="{'one' : hideSubnavItems == 1}" class="sidebar-nav flex flex-col divide-y divide-granite">
+                                <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                    <a href="find-your-tyre.html" class="group flex py-3.5 lg:py-5 px-3 justify-between text-sm">
+                                        <span>FIND YOUR PERFECT VOGE TYRE</span>
+                                        <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                    <a href="locate-dealer-1.html" class="group flex py-3.5 lg:py-5 px-3 justify-between text-sm">
+                                        <span>LOCATE YOUR AUTHORIZED VOGUE TYRE DEALER</span>
+                                        <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- LOCATE YOUR DEALER  -->
+    <div class="bg-black flex flex-col items-center pt-5 lg:pt-16">
+        <div class="max-w-7xl px-3.5">
+            <p class="t-20 max-w-3xl mx-auto px-10 text-center">
+                Oh sorry! Unfortunatelly we don’t offer a matching tire. We are always revaluating our fitmets. Please enter your e-mail adress to be notified when we build a size that matches your vehicle.
+            </p>
+            <div class="max-w-sm mx-auto px-6 pt-14">
+                <input type="text" class="w-full t-20 border bg-black placeholder-silver h-50p lg:h-70p px-5 border-granite" placeholder="E-mail adress">
+                <a href="./locate-dealer-2.html" class="bg-yellow text-black rounded-full h-50p lg:h-auto py-3 mt-12 flex items-center justify-center space-x-4 link">
+                    <span>SUBMIT</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/alpine.js"></script>
+</body>
+</html>

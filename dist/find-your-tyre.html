@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Oswald Fonts  -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Link Swiper's CSS -->
+    <link  rel="stylesheet"  href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <title>Find Your Tyre - Vogue Tyre</title>
+</head>
+<body class="bg-black-highlighted">
+    <!-- Header -->
+    <header x-data="{sidebarOpen: false, sidebarNav: false, sidebarNavMobile: false, sidebarRightNavMobile: false, headerFooter : true, showSidebar: true, showSubnav : -1, hideSubnavItems : -1}" class="h-28 lg:h-150p bg-black px-5 lg:px-14 py-5">
+        <div class="flex items-center justify-between h-full w-full">
+            <a href="#" @click.prevent="sidebarNavMobile = !sidebarNavMobile">
+                <svg x-show="!sidebarNavMobile" class="h-5 lg:h-8" xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 35 32">
+                    <g transform="translate(-74.161 -59)"><line x1="35" transform="translate(74.161 60)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="35" transform="translate(74.161 90)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/><line x1="35" transform="translate(74.161 75.039)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2"/></g>
+                </svg>
+                <svg x-show="sidebarNavMobile" class="h-5 lg:h-8" xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 21.061 21.061">
+                    <g transform="translate(-1466.219 -72.849)"><line x2="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/><line x1="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/></g>
+                </svg>
+            </a>  
+            <a href="index.html">
+                <img class="h-10 lg:h-auto" src="./assets/images/desktop-navbar-logo.png" alt="">
+            </a>
+            <a href="#" @click.prevent="sidebarRightNavMobile = !sidebarRightNavMobile">
+                <span x-show="!sidebarRightNavMobile" class="flex flex-col items-center space-y-1 lg:space-y-2">
+                    <svg class="h-7 lg:h-10" xmlns="http://www.w3.org/2000/svg" width="37.914" viewBox="0 0 37.914 39.455">
+                        <g transform="translate(-1808.425 -47)"><path d="M1835.046,66.727a25.06,25.06,0,0,0-3.125-12.462V47.5h-9.935c-7.213,0-13.061,8.608-13.061,19.227s5.848,19.228,13.061,19.228h9.935V79.189A25.055,25.055,0,0,0,1835.046,66.727Z" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/><ellipse cx="13.06" cy="19.227" rx="13.06" ry="19.227" transform="translate(1819.718 47.5)" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/><g transform="translate(1821.096 48.985)" fill="none" stroke="#ffbe00" stroke-miterlimit="10" stroke-width="1.118"><ellipse cx="11.683" cy="17.742" rx="11.683" ry="17.742" stroke="none"/><ellipse cx="11.683" cy="17.742" rx="11.124" ry="17.183" fill="none"/></g><g transform="translate(1823.406 51.157)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2.236"><ellipse cx="9.372" cy="15.57" rx="9.372" ry="15.57" stroke="none"/><ellipse cx="9.372" cy="15.57" rx="8.255" ry="14.452" fill="none"/></g></g>
+                    </svg>
+                    <svg class="h-1 lg:h-2" xmlns="http://www.w3.org/2000/svg" width="13.115" viewBox="0 0 13.115 7.265">
+                        <path d="M1821.178,96.3l6.2,6.2,6.2-6.2" transform="translate(-1820.825 -95.943)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="1"/>
+                    </svg>
+                </span>
+                <svg x-show="sidebarRightNavMobile" class="h-5 lg:h-10" xmlns="http://www.w3.org/2000/svg" width="37" viewBox="0 0 21.061 21.061">
+                    <g transform="translate(-1466.219 -72.849)"><line x2="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/><line x1="20" y2="20" transform="translate(1466.749 73.379)" fill="none" stroke="#ffc12e" stroke-miterlimit="10" stroke-width="1.5"/></g>
+                </svg>
+            </a>  
+        </div>
+        <div class="h-full flex flex-col md:flex-row w-full overflow-hidden">
+            <!-- Sidebars -->
+            <div class="absolute w-auto top-20 lg:top-28 left-0 lg:-left-14 h-screen lg:h-auto lg:relative flex flex-shrink-0">
+                <div x-show="sidebarNavMobile" class="flex fixed z-40 top-20 lg:top-28 h-full flex-col w-full bg-black mt-2 border-t border-granite">
+                    <div class="flex flex-col space-y-5 h-full bg-black">
+                        <div class="flex-grow flex flex-col pb-10 overflow-y-auto">
+                            <ul @mouseleave="hideSubnavItems == 1 ? showSubnav = -1 : hideSubnavItems = -1" :class="{'one' : hideSubnavItems == 1}" class="sidebar-nav flex flex-col space-y-1 divide-y divide-granite">
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 1 ? showSubnav = -1 : showSubnav = 1" :class="{'active' : showSubnav == 1}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>CUSTOM BUILT WHITE / GOLD</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 1, 'rotate-0' : showSubnav != 1}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 1" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-gold.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL WHITE GOLD
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-gold.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL SCT2 WHITE GOLD
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 2 ? showSubnav = -1 : showSubnav = 2" :class="{'active' : showSubnav == 2}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>CUSTOM BUILT WHITE / RED</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 2, 'rotate-0' : showSubnav != 2}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8  w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 2" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-white-red.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL WHITE RED
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="#" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM BUILT RADIAL SCT2 WHITE RED
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="#" @click.prevent="showSubnav == 3 ? showSubnav = -1 : showSubnav = 3" :class="{'active' : showSubnav == 3}" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>SIGNATURE V BLACK</span>
+                                        <svg :class="{'rotate-180' : showSubnav == 3, 'rotate-0' : showSubnav != 3}" class="arrow transform transition-all duration-200 ease-in-out h-5 lg:h-8  w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                    <ul x-show="showSubnav == 3" class="sidebar-subnav-2 flex flex-col divide-y divide-granite">
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-signature-black.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM SIGNATURE V BLACK
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For passenger cars</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                            <a href="product-signature-black.html" class="group flex py-2.5 px-3 justify-between text-sm">
+                                                <span>
+                                                    CUSTOM SCT2 SIGNATURE V BLACK
+                                                    <p class="text-xs lg:text-lg font-normal normal-case font-source-sans-pro">For SUV’S Crossovers and Trucks</p>
+                                                </span>
+                                                <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="all-tires-and-sizes.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>ALL TIRES AND SIZES</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="merch-store.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>MERCH STORE</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="warranty.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>TIRE WARRANTY</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>SUPPORT</span>
+                                    </a>
+                                </li>
+                                <li class="relative flex flex-col">
+                                    <a href="locate-dealer-1.html" class="group flex py-2.5 lg:py-5 px-3 items-center justify-between">
+                                        <span>DEALER PORTAL</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="w-4/5 lg:max-w-xs mx-auto pt-4"> 
+                                <a href="./locate-dealer-1.html" class="bg-yellow text-black rounded-full h-50p lg:h-auto py-3 flex items-center justify-center space-x-3 link">
+                                    <span cl>LOCATE RETAILER</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="sidebarRightNavMobile" class="flex fixed z-40 top-20 lg:top-28 flex-col w-full bg-black mt-2 border-t border-b border-granite">
+                    <div class="flex flex-col space-y-5 bg-black">
+                        <div class="flex-grow flex flex-col overflow-y-auto">
+                            <ul @mouseleave="hideSubnavItems == 1 ? showSubnav = -1 : hideSubnavItems = -1" :class="{'one' : hideSubnavItems == 1}" class="sidebar-nav flex flex-col divide-y divide-granite">
+                                <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                    <a href="find-your-tyre.html" class="group flex py-3.5 lg:py-5 px-3 justify-between text-sm">
+                                        <span>FIND YOUR PERFECT VOGE TYRE</span>
+                                        <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li x-data="{showSubnav : false}" class="relative flex flex-col">
+                                    <a href="locate-dealer-1.html" class="group flex py-3.5 lg:py-5 px-3 justify-between text-sm">
+                                        <span>LOCATE YOUR AUTHORIZED VOGUE TYRE DEALER</span>
+                                        <svg class="arrow -rotate-90 transform transition-all duration-200 ease-in-out h-5 lg:h-8 w-5 lg:w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Find Perfect Tyre  -->
+    <div class="bg-black-highlighted flex flex-col items-center py-14 lg:py-28">
+        <div class="w-full mx-auto max-w-4xl px-5 lg:px-3.5">
+            <p class="t3xl text-white">FIND YOUR PERFECT VOGE TYRE</p>
+            <div x-data="{activeTab: 'vehicle',showSelector: ''}" class="flex flex-col w-full pt-10 lg:pt-24">
+                <div class="form-tabs flex items-center justify-center divide-x w-full border-t border-b">
+                    <a @click.prevent="activeTab = 'vehicle'" :class="{'active' : activeTab == 'vehicle'}" href="#" class="h4 w-1/2 py-4 lg:py-8">BY VEHICLE</a>
+                    <a @click.prevent="activeTab = 'size'" :class="{'active' : activeTab == 'size'}" href="#" class="h4 w-1/2 py-4 lg:py-8">BY SIZE</a>
+                </div>
+                <div x-show="activeTab == 'size'">
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'width'" class="h4 py-4 lg:py-8">WIDTH<span class="selection-result"></span></a>
+                    </div>
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'sidewall'" class="h4 py-4 lg:py-8">Sidewall<span class="selection-result"></span></a>
+                    </div>
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'diameter'" class="h4 py-4 lg:py-8">diameter<span class="selection-result"></span></a>
+                    </div>
+                </div>
+                <div x-show="activeTab == 'vehicle'">
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'year'" class="h4 py-4 lg:py-8">YEAR<span class="selection-result"></span></a>
+                    </div>
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'make'" class="h4 py-4 lg:py-8">MAKE<span class="selection-result"></span></a>
+                    </div>
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'model'" class="h4 py-4 lg:py-8">MODEL<span class="selection-result"></span></a>
+                    </div>
+                    <div class="form-tabs flex items-center justify-center w-full border-b">
+                        <a href="#" @click.prevent="showSelector = 'trim'" class="h4 py-4 lg:py-8">TRIM<span class="selection-result"></span></a>
+                    </div>
+                </div>
+                <!-- Size Options  -->
+                <div x-show="activeTab == 'size'">
+                    <!-- Label WIDTH -->
+                    <div x-show="showSelector == 'width'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select WIDTH: </label>
+                    </div>
+                    <!-- Select WIDTH - list -->
+                    <div x-show="showSelector == 'width'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="width_option1">175</label>
+                                <div class="flex items-center">
+                                    <input id="width_option1" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option2">185</label>
+                                <div class="flex items-center">
+                                    <input id="width_option2" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option3">195</label>
+                                <div class="flex items-center">
+                                    <input id="width_option3" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option4">205</label>
+                                <div class="flex items-center">
+                                    <input id="width_option4" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option5">215</label>
+                                <div class="flex items-center">
+                                    <input id="width_option5" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option6">225</label>
+                                <div class="flex items-center">
+                                    <input id="width_option6" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option7">235</label>
+                                <div class="flex items-center">
+                                    <input id="width_option7" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option8">245</label>
+                                <div class="flex items-center">
+                                    <input id="width_option8" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option9">255</label>
+                                <div class="flex items-center">
+                                    <input id="width_option9" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="width_option10">265</label>
+                                <div class="flex items-center">
+                                    <input id="width_option10" name="width_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Label sidewall -->
+                    <div x-show="showSelector == 'sidewall'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select Sidewall: </label>
+                    </div>
+                    <!-- Select sidewall - list -->
+                    <div x-show="showSelector == 'sidewall'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="sidewall_option1">44</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option1" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option2">47</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option2" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option3">50</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option3" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option4">53</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option4" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option5">56</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option5" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option6">59</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option6" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option7">62</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option7" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option8">65</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option8" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option9">68</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option9" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="sidewall_option10">71</label>
+                                <div class="flex items-center">
+                                    <input id="sidewall_option10" name="sidewall_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Label diameter -->
+                    <div x-show="showSelector == 'diameter'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select Diameter: </label>
+                    </div>
+                    <!-- Select diameter - list -->
+                    <div x-show="showSelector == 'diameter'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="diameter_option1">14</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option1" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option2">15</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option2" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option3">16</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option3" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option4">17</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option4" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option5">18</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option5" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option6">19</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option6" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option7">20</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option7" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option8">21</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option8" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option9">22</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option9" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="diameter_option10">23</label>
+                                <div class="flex items-center">
+                                    <input id="diameter_option10" name="diameter_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Selected Filters -->
+                    <p class="t3xl pt-14">YOUR SIZE:</p>
+                    <p class="t3xl">215 50 17</p>
+                </div>
+                <!-- Vehicle Options  -->
+                <div x-show="activeTab == 'vehicle'">
+                    <!-- Label year -->
+                    <div x-show="showSelector == 'year'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select Year: </label>
+                    </div>
+                    <!-- Select year - list -->
+                    <div x-show="showSelector == 'year'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="year_option1">2021</label>
+                                <div class="flex items-center">
+                                    <input id="year_option1" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option2">2020</label>
+                                <div class="flex items-center">
+                                    <input id="year_option2" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option3">2019</label>
+                                <div class="flex items-center">
+                                    <input id="year_option3" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option4">2018</label>
+                                <div class="flex items-center">
+                                    <input id="year_option4" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option5">2017</label>
+                                <div class="flex items-center">
+                                    <input id="year_option5" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option6">2016</label>
+                                <div class="flex items-center">
+                                    <input id="year_option6" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option7">2015</label>
+                                <div class="flex items-center">
+                                    <input id="year_option7" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option8">2014</label>
+                                <div class="flex items-center">
+                                    <input id="year_option8" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option9">2013</label>
+                                <div class="flex items-center">
+                                    <input id="year_option9" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="year_option10">2012</label>
+                                <div class="flex items-center">
+                                    <input id="year_option10" name="year_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Label make -->
+                    <div x-show="showSelector == 'make'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select Make: </label>
+                    </div>
+                    <!-- Select make - list -->
+                    <div x-show="showSelector == 'make'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="make_option1">ACURA</label>
+                                <div class="flex items-center">
+                                    <input id="make_option1" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option2">ALFA ROMEO</label>
+                                <div class="flex items-center">
+                                    <input id="make_option2" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option3">ASTON MARTIN</label>
+                                <div class="flex items-center">
+                                    <input id="make_option3" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option4">AUDI</label>
+                                <div class="flex items-center">
+                                    <input id="make_option4" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option5">BENTLEY</label>
+                                <div class="flex items-center">
+                                    <input id="make_option5" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option6">BMW</label>
+                                <div class="flex items-center">
+                                    <input id="make_option6" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option7">TESLA</label>
+                                <div class="flex items-center">
+                                    <input id="make_option7" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option8">HONDA</label>
+                                <div class="flex items-center">
+                                    <input id="make_option8" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option9">TOYOTA</label>
+                                <div class="flex items-center">
+                                    <input id="make_option9" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="make_option10">KIA</label>
+                                <div class="flex items-center">
+                                    <input id="make_option10" name="make_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Label model -->
+                    <div x-show="showSelector == 'model'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select Model: </label>
+                    </div>
+                    <!-- Select model - list -->
+                    <div x-show="showSelector == 'model'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="model_option1">ILX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option1" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option2">MDX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option2" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option3">NSX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option3" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option4">RDX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option4" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option5">RLX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option5" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option6">TLX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option6" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option7">NSX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option7" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option8">RDX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option8" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option9">MDX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option9" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="model_option10">NSX</label>
+                                <div class="flex items-center">
+                                    <input id="model_option10" name="model_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Label trim -->
+                    <div x-show="showSelector == 'trim'" class="py-10 lg:py-12 text-center">
+                        <label for="model-label" class="h2"> Select TRIM: </label>
+                    </div>
+                    <!-- Select trim - list -->
+                    <div x-show="showSelector == 'trim'" class="relative">
+                        <ul id="size-label" class="custom-scrollbar border w-full bg-black shadow-lg max-h-300p lg:max-h-420p overflow-auto focus:outline-none">
+                            <li class="w-full select-item relative">
+                                <label class="w-full" for="trim_option1">BASE</label>
+                                <div class="flex items-center">
+                                    <input id="trim_option1" name="trim_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <li class="select-item relative">
+                                <label class="w-full" for="trim_option2">SPORT HYBRID SH-AWD</label>
+                                <div class="flex items-center">
+                                    <input id="trim_option2" name="trim_options" type="radio" class="focus:ring-0 h-5 w-5 rounded-full bg-black text-yellow-dark focus:text-yellow-dark focus:outline-none focus:border-yellow-text-yellow-dark border-transparent">
+                                </div>
+                            </li>
+                            <!-- More items... -->
+                        </ul>
+                    </div>
+                    <!-- Selected Filters -->
+                    <p class="t3xl pt-14">YOUR VEHICLE:</p>
+                    <p class="t3xl">2017 ACURA RLX BASE</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/alpine.js"></script>
+</body>
+</html>
