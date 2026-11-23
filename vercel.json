@@ -1,5 +1,6 @@
 {
   "framework": null,
+  "buildCommand": "echo 'Using committed dist directory'",
   "outputDirectory": "dist",
   "rewrites": [
     {
