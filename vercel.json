@@ -1,0 +1,14 @@
+{
+  "framework": null,
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/voguetyre",
+      "destination": "/"
+    },
+    {
+      "source": "/voguetyre/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}
